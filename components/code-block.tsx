@@ -10,14 +10,21 @@ import { CopyButton } from '@/components/copy-button';
 type CodeBlockProps = {
   lang?: BundledLanguage;
   source: string | { file: string };
+  transform?: (code: string) => string;
   className?: string;
   preClassName?: string;
 };
 
-export async function CodeBlock({ lang = 'tsx', source, className, preClassName }: CodeBlockProps) {
+export async function CodeBlock({
+  lang = 'tsx',
+  source,
+  className,
+  preClassName,
+  transform = (code: string) => code,
+}: CodeBlockProps) {
   const code = typeof source === 'string' ? source : fs.readFileSync(source.file, 'utf-8');
 
-  const highlighted = await codeToHtml(code, {
+  const highlighted = await codeToHtml(transform(code), {
     lang,
     theme: 'github-dark',
     transformers: [
