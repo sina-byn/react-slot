@@ -121,6 +121,7 @@
 @theme inline {
   --color-brand: var(--brand);
   --color-darken: color-mix(in srgb, var(--base, var(--brand)), black 20%);
+  --color-lighten: color-mix(in srgb, var(--base, var(--brand)), white 20%);
 }
 
 :root {
@@ -136,6 +137,9 @@
   * {
     @apply border-border outline-ring/50;
   }
+  html {
+    @apply scroll-smooth;
+  }
   body {
     @apply bg-background text-foreground font-sans;
   }
@@ -150,20 +154,24 @@
     scrollbar-color: var(--muted-foreground);
 
     ::-webkit-scrollbar {
-      appearance: none;
-      width: 4px;
-      height: 4px;
+      @apply size-1 appearance-none;
     }
 
     ::-webkit-scrollbar-corner {
-      appearance: none;
+      @apply appearance-none;
     }
 
     ::-webkit-scrollbar-thumb {
       @apply bg-muted-foreground rounded-lg;
     }
   }
+  .title {
+    @apply relative text-lg font-semibold pl-4;
 
+    &::before {
+      @apply content-[''] absolute top-1/2 left-0 -translate-y-1/2 size-2 bg-brand rotate-45 -mt-px;
+    }
+  }
   .prose code {
     @apply bg-muted rounded-sm pt-1 pb-0.5 px-2;
 
