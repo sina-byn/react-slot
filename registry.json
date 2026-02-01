@@ -5,7 +5,7 @@
   "items": [
     {
       "name": "slot",
-      "type": "registry:block",
+      "type": "registry:component",
       "title": "React Slot",
       "description": "Vue-style slot composition for React",
       "files": [
