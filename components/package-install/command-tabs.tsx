@@ -40,25 +40,27 @@ export function CommandTabs({ className, children }: CommandTabsProps) {
   return (
     <article className={cn('scroller bg-muted p-1 rounded-xl overflow-hidden', className)}>
       <Tabs value={pkgMgr} onValueChange={setPkgMgr}>
-        <TabsList className='flex items-center gap-x-1 pt-0.5 -mb-1'>
-          {PACKAGE_MANAGERS.map(mgr => {
-            const isCurrent = mgr === pkgMgr;
+        <div className='grid grid-cols-1 overflow-x-auto overflow-y-hidden -mb-1'>
+          <TabsList className='flex items-center gap-x-1 pt-0.5'>
+            {PACKAGE_MANAGERS.map(mgr => {
+              const isCurrent = mgr === pkgMgr;
 
-            return (
-              <TabsTrigger
-                key={mgr}
-                value={mgr}
-                className={cn(
-                  'flex items-center gap-x-2 [&_svg]:size-4 border-b border-transparent',
-                  isCurrent ? '' : 'text-muted-foreground',
-                )}
-              >
-                {ICONS[mgr]}
-                {mgr}
-              </TabsTrigger>
-            );
-          })}
-        </TabsList>
+              return (
+                <TabsTrigger
+                  key={mgr}
+                  value={mgr}
+                  className={cn(
+                    'flex items-center gap-x-2 [&_svg]:size-4 border-b border-transparent',
+                    isCurrent ? '' : 'text-muted-foreground',
+                  )}
+                >
+                  {ICONS[mgr]}
+                  {mgr}
+                </TabsTrigger>
+              );
+            })}
+          </TabsList>
+        </div>
         {children}
       </Tabs>
     </article>
