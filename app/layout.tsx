@@ -18,6 +18,9 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: 'React Slot',
   description: 'Vue-style slot composition for React components, simple and flexible.',
+  verification: {
+    google: '0aVU7hmFQkCiP7NbGmnl6Zelf2_srz7qeoZG927OvN0',
+  },
 };
 
 export default function RootLayout({
