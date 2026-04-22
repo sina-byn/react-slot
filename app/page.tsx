@@ -61,7 +61,7 @@ export default function HomePage() {
 
               <div className='relative rounded-xl overflow-hidden p-0.5'>
                 <PackageInstall.CommandTabs>
-                  <PackageInstall.CommandBlock npxCmd='npx shadcn@latest add https://react-slot.vercel.app/r/slot.json' />
+                  <PackageInstall.CommandBlock npxCmd='npx shadcn@latest add @react-slot/slot' />
                 </PackageInstall.CommandTabs>
               </div>
             </section>
